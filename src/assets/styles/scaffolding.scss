@@ -1,0 +1,26 @@
+.d-flex {
+	display: flex;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+.items-center {
+	align-items: center;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.container {
+  width: 1200px;
+}
+
+.img-wrapper {
+
+	img {
+		max-width: 100%;
+	}
+}

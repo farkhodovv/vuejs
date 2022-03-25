@@ -1,25 +1,30 @@
 <template>
-  <div>
-    <nav>
-      <h1>Card List</h1>
-    </nav>
-    <div class="cards-wrapper">
-      <router-link class="card add" to="/Add">
-        <div class="img-wrapper">
-          <img src="../assets/pluscard.png" alt="">
-        </div>
-      </router-link>
-      <Card v-for="card in cards" :key="card.id" :card="card" @like="liked" />
+  <v-page> 
+    <div class="container">
+      <nav>
+        <h1>Card List</h1>
+      </nav>
+      <div class="d-flex flex-wrap">
+        <add-card />
+        <Card v-for="card in cards" :key="card.id" :card="card" @like="changeStatus" />
+      </div>
     </div>
-  </div>
+  </v-page>
 </template>
 
 <script>
 import Card from '@/components/Card.vue'
+import VPage from '@/components/V-page.vue'
+import initialCards from '@/common/cards'
+import AddCard from '@/components/AddCard.vue'
+import { CardService } from '@/helpers/MainMethods';
+
 export default {
   name: 'IndexPage',
   components: {
-    Card
+    Card,
+    VPage,
+    AddCard
   },
   data () {
     return {
@@ -27,12 +32,13 @@ export default {
     }
   },
   created() {
-    this.cards = JSON.parse(localStorage.getItem("cards") || '[]')
+    this.cards = initialCards
   },
   methods: {
-    liked (card) {
-      card.liked = !card.liked
-      localStorage.setItem("cards", JSON.stringify(this.cards));
+    changeStatus (card) {
+      console.log('card :>> ', card);
+      this.cards = CardService.likeCard(card)
+      console.log(this.cards);
     }
   }
 }

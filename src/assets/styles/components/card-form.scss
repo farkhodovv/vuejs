@@ -1,0 +1,58 @@
+.card-info {
+
+  &__form {
+    margin: auto;
+    width: 300px;
+    margin-top: 50px;
+    background: #b2beb5;
+    height: 300px;
+    margin-bottom: 50px;
+    padding: 25px;
+
+  }
+  
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+
+  .create {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  
+  .title-input {
+    padding: 10px 20px;
+  }
+  
+  .description {
+    margin-top: 10px;
+    padding-bottom: 50px;
+  }
+
+  
+  .save {
+    padding: 10px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .delete {
+    padding: 10px 30px;
+    border-radius: 10px;
+    background-color: inherit;
+    cursor: pointer;
+  }
+}
+  
+  
